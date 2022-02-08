@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PoliceApiWebToolWithTesting.Models.CrimeSummary>
+@using PoliceApiWebToolWithTesting.Models;
+
+<div class="row">
+    <div class="table-responsive">
+        <table id="table-data" class="table table-striped">
+            <thead>
+                <tr>
+                    <th data-sortable="true">Category</th>
+                    <th data-sortable="true">Count</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.category
+                        </td>
+
+                        <td>
+                            @item.count
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+
+
+
+        </table>
+    </div>
+</div>

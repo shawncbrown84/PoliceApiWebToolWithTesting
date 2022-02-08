@@ -1,0 +1,99 @@
+﻿@model IEnumerable<PoliceApiWebToolWithTesting.Models.Crime>
+@using PoliceApiWebToolWithTesting.Models;
+
+
+<div class="row">
+    <div class="table">
+        <table id="table-data" class="table table-striped">
+            <thead>
+                <tr>
+                    <th data-sortable="true">Category</th>
+                    <th data-sortable="true">Location Type</th>
+                    <th data-sortable="true">Location</th>
+
+                    <th data-sortable="true">Context</th>
+                    <th data-sortable="true">Outcome Status</th>
+
+                    <th data-sortable="true">Persistent ID</th>
+                    <th data-sortable="true">ID</th>
+                    <th data-sortable="true">Location Subtype</th>
+                    <th data-sortable="true">Month</th>
+
+
+                </tr>
+            </thead>
+
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.category
+                        </td>
+
+                        <td>
+                            @item.location_type
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-3">Long:</div>
+                                <div class="col-md-9">@item.location.longitude</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">Lat:</div>
+                                <div class="col-md-9">@item.location.latitude</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">ID:</div>
+                                <div class="col-md-9">@item.location.street.id</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">Name:</div>
+                                <div class="col-md-9">@item.location.street.name</div>
+                            </div>
+                        </td>
+                        <td>
+                            @item.context
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-3">Category:</div>
+                                <div class="col-md-9">@(item.outcome_status == null ? "" : item.outcome_status.category)</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">Date:</div>
+                                <div class="col-md-9">@(item.outcome_status == null ? "" : item.outcome_status.date.ToString("yyyy MM"))</div>
+                            </div>
+
+
+                        </td>
+                        <td>
+                            @item.persistent_id
+                        </td>
+                        <td>
+                            @item.id
+                        </td>
+                        <td>
+                            @item.location_subtype
+                        </td>
+                        <td>
+                            @item.month.ToString("yyyy MM")
+                        </td>
+
+
+                    </tr>
+
+
+
+
+                }
+            </tbody>
+
+
+
+
+        </table>
+    </div>
+
+</div>
